@@ -1,0 +1,50 @@
+.App {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+.title-app {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.content {
+  height: 500px;
+  border-radius: 4px;
+  background-color: #daeeee;
+  padding: 20px 0;
+}
+/* component Task */
+.wrapper-task {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  border-radius: 4px;
+  background-color: #ffffff;
+  margin: 0 auto;
+  padding: 8px 0;
+  margin-bottom: 8px;
+}
+.wrapper-task input {
+  width: 24px;
+  height: 24px;
+  margin-left: 12px;
+}
+.task-description {
+  margin-left: 4px;
+  font-size: 14px;
+}
+.action {
+  position: absolute;
+  right: 8px;
+}
+.delete-btn {
+  margin-right: 4px;
+}
