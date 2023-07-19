@@ -10,12 +10,24 @@ interface EditTaskProps {
 const EditTask = (props: EditTaskProps) => {
   const { openEdit, setOpenEdit, selectedTask, updateTask } = props;
   const [valueInput, setValueInput] = useState("");
+  const [valueSelected, setValueSelected] = useState("");
+  console.log(selectedTask?.status);
   // click update btn
   const handleUpdateBtn = () => {
     if (selectedTask) {
+      const currentTime = new Date();
+      const formattedTime = currentTime.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "numeric",
+        day: "numeric",
+        month: "numeric",
+        year: "numeric",
+      });
       const updatedTask: IStyleTasksItem = {
         ...selectedTask,
         name: valueInput,
+        time: formattedTime,
+        status: valueSelected,
       };
       updateTask(updatedTask);
     }
@@ -24,6 +36,7 @@ const EditTask = (props: EditTaskProps) => {
   useEffect(() => {
     if (selectedTask) {
       setValueInput(selectedTask.name);
+      setValueSelected(selectedTask.status);
     }
   }, [selectedTask]);
   return (
@@ -49,7 +62,8 @@ const EditTask = (props: EditTaskProps) => {
           style={{
             width: 120,
           }}
-          defaultValue="All"
+          defaultValue="incomplete"
+          value={valueSelected}
           options={[
             {
               value: "incomplete",
@@ -60,6 +74,7 @@ const EditTask = (props: EditTaskProps) => {
               label: "Complete",
             },
           ]}
+          onChange={(value) => setValueSelected(value)}
         ></Select>
       </div>
     </Modal>

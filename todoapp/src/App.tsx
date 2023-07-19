@@ -16,6 +16,7 @@ function App() {
   const [selectedTask, setSelectedTask] = useState<IStyleTasksItem | null>(
     null
   );
+  const [selectedStatus, setSelectedStatus] = useState("");
   const [tasks, setTasks] = useState<IStyleTasksItem[]>([
     { id: "1", name: "Da bong", time: "2023", status: "hoan thanh" },
   ]);
@@ -35,6 +36,13 @@ function App() {
       prevTasks.map((task) => (task.id === updatedTask.id ? updatedTask : task))
     );
   };
+  const handleStatusChange = (value: string) => {
+    setSelectedStatus(value);
+  };
+  const filteredTasks = selectedStatus
+    ? tasks.filter((task) => task.status === selectedStatus)
+    : tasks;
+
   return (
     <>
       <div className="App">
@@ -47,7 +55,9 @@ function App() {
             style={{
               width: 120,
             }}
-            defaultValue="All"
+            defaultValue="all"
+            value={selectedStatus}
+            onChange={handleStatusChange}
             options={[
               {
                 value: "all",
@@ -65,7 +75,7 @@ function App() {
           ></Select>
         </div>
         <div className="content">
-          {tasks.map((task) => (
+          {filteredTasks.map((task) => (
             <Task
               key={task.id}
               task={task}

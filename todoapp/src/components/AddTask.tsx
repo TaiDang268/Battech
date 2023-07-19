@@ -55,7 +55,7 @@ const AddTask = (props: AddTaskProps) => {
           style={{
             width: 120,
           }}
-          defaultValue="All"
+          defaultValue="incomplete"
           options={[
             {
               value: "incomplete",
