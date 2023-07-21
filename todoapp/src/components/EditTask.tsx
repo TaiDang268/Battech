@@ -11,7 +11,6 @@ const EditTask = (props: EditTaskProps) => {
   const { openEdit, setOpenEdit, selectedTask, updateTask } = props;
   const [valueInput, setValueInput] = useState("");
   const [valueSelected, setValueSelected] = useState("");
-  console.log(selectedTask?.status);
   // click update btn
   const handleUpdateBtn = () => {
     if (selectedTask) {
