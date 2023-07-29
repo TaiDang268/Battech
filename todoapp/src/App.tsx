@@ -4,6 +4,7 @@ import Task from "./components/Task";
 import { useState } from "react";
 import AddTask from "./components/AddTask";
 import EditTask from "./components/EditTask";
+import Test from "./test";
 export interface IStyleTasksItem {
   id: string;
   name: string;
@@ -46,6 +47,7 @@ function App() {
   return (
     <>
       <div className="App">
+        <Test/>
         <span className="title-app">TODOLIST</span>
         <div className="header">
           <Button type="primary" onClick={showModal}>
