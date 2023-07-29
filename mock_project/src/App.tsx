@@ -1,16 +1,12 @@
-import { Routes, Route } from 'react-router-dom'
 import './App.css'
-import Main from './pages/Main'
-import Input from './components/Input'
+import { BrowserRouter } from 'react-router-dom'
+import Routers from './router'
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path='/' element={<Main />} />
-        <Route path='/input' element={<Input />} />
-      </Routes>
-    </>
+    <BrowserRouter>
+      <Routers />
+    </BrowserRouter>
   )
 }
 

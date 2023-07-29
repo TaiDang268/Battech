@@ -8,8 +8,8 @@ const Main = () => {
   const [name, setName] = useState('')
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value)
-    console.log(name)
   }
+  console.log(name)
   return (
     <>
       <Button onClick={() => console.log('Hello')}>
